@@ -1,7 +1,7 @@
-ruts=[]
-nombres=[]
-apellidos_paternos=[]
-edades=[]
+ruts=["210641394", "tu rut"]
+nombres=["leandro", "Johan"]
+apellidos_paternos=["marcelo", "Gallardo"]
+edades=["20", "tu edad"]
 estados_civiles=[]
 generos=[]
 fechas_afiliaciones=[]
@@ -108,25 +108,24 @@ def imprimir():
     print(f'Datos de la persona: ')
     print(f'\n rut: {ruts[indice]} \n nombre: {nombres[indice]} \n apellido: {apellidos_paternos[indice]} \n edad: {edades[indice]} \n estado civil: {estados_civiles[indice]} \n genero: {generos[indice]} \n fecha afiliacion: {fechas_afiliaciones[indice]}')
 
-
 def salir():
-    print('Gracias por utilizar la aplicacion de VIDA Y SALUD, leandro marcelo version 1.0')
+    print('Gracias por utilizar la aplicacion, leandro marcelo version 1.0')
+   
 
 def app():
     while True:
         option = menu("Grabar", "Buscar", "Imprimir", "Salir")
-        if option == 1:
-            print("===> Grabar")
-            grabar()
-        if option == 2:
-            print("===> Buscar")
-            buscar()
-        if option == 3:
-            print("===> Imprimir")
-            imprimir()
-        if option == 4:
-            print("===> Saliendo de la aplicación")
-            salir()
-            return
+        if option > 0 and option <= 4:
+            if option == 1:
+                grabar()
+            if option == 2:
+                buscar()
+            if option == 3:
+                imprimir()
+            if option == 4:
+                salir()
+                return
+        else:
+            print('Opcion Incorrecta - Intente Nuevamente, las opciones de 1 - 4')
 
 app()

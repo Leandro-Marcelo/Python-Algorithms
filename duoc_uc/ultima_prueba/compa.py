@@ -38,12 +38,6 @@ def app():
             salir()
             return
 
-# Opcion 1: grabar.
-# Se refiere a guardar:
-# Número de Parte (Validar número de parte. Puede crear varios, mínimo 10).
-# Nombre del producto (6 caracteres mínimo).
-# Precio del producto (Precio mayor a cero).
-
 def grabar():
     while True:
         letras = "abcdefghijklmnopqrstuvwxyz"

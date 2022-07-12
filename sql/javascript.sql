@@ -1,3 +1,6 @@
+SELECT * FROM FORMULARIO_POSTULACION;
+DROP TABLE DIRECTOR_ENCARGADO;
+
 CREATE TABLE FORMULARIO_POSTULACION (
     id_formulario_postulacion NUMBER(20) NOT NULL,
     director_encargado NUMBER(20) NOT NULL,
@@ -73,7 +76,7 @@ CREATE TABLE ESCUELA_DEPORTIVA (
     sitio_web VARCHAR2 (100),
     numero_inscripcion_comunal NUMBER(20),
     fecha_resolucion DATE NOT NULL,
-    CONSTRAINT ESCUELA_DEPORTIVA_pk PRIMARY KEY (id_escuela)
+    CONSTRAINT ESCUELA_DEPORTIVA_pk PRIMARY KEY (id_escuela_deportiva)
 );
 
 CREATE SEQUENCE serie_ESCUELA_DEPORTIVA
@@ -132,48 +135,48 @@ INCREMENT BY 1;
 
 
 ALTER TABLE DIRECTOR_ENCARGADO
-     ADD CONSTRAINT DIRECTOR_ENCARGADO_id_comuna_fkey 
+     ADD CONSTRAINT DE_id_comuna_fkey 
      FOREIGN KEY (comuna) 
      REFERENCES COMUNA (id_comuna); 
 
 ALTER TABLE DIRECTOR_ENCARGADO 
-     ADD CONSTRAINT DIRECTOR_ENCARGADO_id_region_fkey 
+     ADD CONSTRAINT DE_id_region_fkey 
      FOREIGN KEY (region)
      REFERENCES REGION (id_region); 
 
 ALTER TABLE ESCUELA_DEPORTIVA 
-     ADD CONSTRAINT ESCUELA_DEPORTIVA_id_comuna_fkey 
+     ADD CONSTRAINT ED_id_comuna_fkey 
      FOREIGN KEY (comuna) 
      REFERENCES COMUNA (id_comuna); 
 
 ALTER TABLE ESCUELA_DEPORTIVA 
-     ADD CONSTRAINT ESCUELA_DEPORTIVA_id_region_fkey 
+     ADD CONSTRAINT ED_id_region_fkey 
      FOREIGN KEY (region)
      REFERENCES REGION (id_region);
 
 ALTER TABLE FORMULARIO_POSTULACION 
-     ADD CONSTRAINT FORMULARIO_POSTULACION_id_director_encargado_fkey 
+     ADD CONSTRAINT FP_id_director_encargado_fkey 
      FOREIGN KEY (director_encargado)
      REFERENCES DIRECTOR_ENCARGADO (id_director_encargado);
 
 ALTER TABLE ESCUELA_DEPORTIVA 
-     ADD CONSTRAINT FORMULARIO_POSTULACION_id_escuela_deportiva_fkey 
-     FOREIGN KEY (escuela_deportiva)
+     ADD CONSTRAINT FP_id_escuela_deportiva_fkey 
+     FOREIGN KEY (id_escuela_deportiva)
      REFERENCES ESCUELA_DEPORTIVA (id_escuela_deportiva);
 
 ALTER TABLE DETALLE_INVERSION 
-     ADD CONSTRAINT FORMULARIO_POSTULACION_id_detalle_inversion_fkey 
-     FOREIGN KEY (detalle_inversion)
+     ADD CONSTRAINT FP_id_detalle_inversion_fkey 
+     FOREIGN KEY (id_detalle_inversion)
      REFERENCES DETALLE_INVERSION (id_detalle_inversion);
 
 ALTER TABLE ADJUDICACION_RECURSOS 
-     ADD CONSTRAINT FORMULARIO_POSTULACION_id_adjudicacion_recursos_fkey 
-     FOREIGN KEY (adjudicacion_recursos)
+     ADD CONSTRAINT FP_adjudicacion_recursos_fkey 
+     FOREIGN KEY (id_adjudicacion_recursos)
      REFERENCES ADJUDICACION_RECURSOS (id_adjudicacion_recursos);
 
 ALTER TABLE CONTRATO_TRABAJO 
-     ADD CONSTRAINT FORMULARIO_POSTULACION_id_contrato_trabajo_fkey 
-     FOREIGN KEY (contrato_trabajo)
+     ADD CONSTRAINT FP_contrato_trabajo_fkey 
+     FOREIGN KEY (id_contrato_trabajo)
      REFERENCES CONTRATO_TRABAJO (id_contrato_trabajo);
 
 
